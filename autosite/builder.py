@@ -102,6 +102,9 @@ def build(config: Config) -> Path:
     extra = ["templates/"] + [f"templates/{p.id}/" for p in catalog] if catalog else []
     write("sitemap.xml", sitemap(base_url, articles, extra))
     write("feed.xml", feed(config, base_url, articles))
+    verification = config.site.get("google_verification_file", "").strip()
+    if verification:
+        write(verification, f"google-site-verification: {verification}")
     write("robots.txt", f"User-agent: *\nAllow: /\nSitemap: {base_url}/sitemap.xml\n")
     return out
 
