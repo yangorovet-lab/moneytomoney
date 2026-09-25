@@ -177,3 +177,9 @@ def test_related_guides_link_live_articles(config):
 
     assert "Related guides" in page and 'href="/moneytomoney/b/"' in page
     assert 'href="/moneytomoney/c/"' not in page
+
+
+def test_task_list_items_render_as_checkboxes(config):
+    from autosite.builder import render_markdown
+    html = render_markdown("- [ ] Feet flat\n- plain item\n", config)
+    assert "☐ Feet flat" in html and "[ ]" not in html

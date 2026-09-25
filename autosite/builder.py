@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import datetime as dt
+import re
 import shutil
 from pathlib import Path
 from urllib.parse import urlparse
@@ -25,8 +26,13 @@ STATIC_PAGES = {
 }
 
 
+# "- [ ] item" task-list lines become printable checkbox symbols.
+TASK_ITEM = re.compile(r"^(\s*[-*] )\[ \] ", re.MULTILINE)
+
+
 def render_markdown(text: str, config: Config) -> str:
-    return markdown.markdown(insert_links(text, config), extensions=["extra", "sane_lists", "toc"])
+    text = TASK_ITEM.sub("\\1\u2610 ", insert_links(text, config))
+    return markdown.markdown(text, extensions=["extra", "sane_lists", "toc"])
 
 
 def build(config: Config) -> Path:
