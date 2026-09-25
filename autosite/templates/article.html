@@ -19,4 +19,5 @@
   {% endif %}
   {{ body | safe }}
 </article>
+{% if product %}{% include "_product_cta.html" %}{% endif %}
 {% endblock %}

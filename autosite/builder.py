@@ -14,6 +14,7 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 from .affiliate import has_links, insert_links
 from .config import Config
 from .content import Article, load_all
+from .shop import best_match, build_assets, bundle_value, catalog_for
 
 PACKAGE_DIR = Path(__file__).resolve().parent
 
@@ -49,13 +50,17 @@ def build(config: Config) -> Path:
     )
 
     articles = [a for a in load_all(config.content_dir) if not a.draft]
+    catalog = catalog_for(config)
+    previews = build_assets(catalog, out)
+    env.globals.update(previews=previews, has_shop=bool(catalog))
+    free_product = next((p for p in catalog if p.is_free), None)
 
     def write(rel: str, html: str) -> None:
         path = out / rel
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(html, encoding="utf-8")
 
-    write("index.html", env.get_template("index.html").render(articles=articles))
+    write("index.html", env.get_template("index.html").render(articles=articles, featured=free_product))
     for article in articles:
         write(
             f"{article.slug}/index.html",
@@ -63,19 +68,30 @@ def build(config: Config) -> Path:
                 article=article,
                 body=render_markdown(article.body, config),
                 has_affiliate_links=has_links(article.body, config),
+                product=best_match(catalog, article.body, f"{article.title} {article.keyword}"),
             ),
         )
     for slug, title in STATIC_PAGES.items():
         write(f"{slug}/index.html", env.get_template(f"{slug}.html").render(title=title))
+    if catalog:
+        write("templates/index.html", env.get_template("shop.html").render(products=catalog))
+        for product in catalog:
+            write(f"templates/{product.id}/index.html", env.get_template("product.html").render(
+                product=product,
+                parts=[p for p in catalog if p.id in product.bundle],
+                bundle_value=bundle_value(product, catalog),
+            ))
     write("404.html", env.get_template("404.html").render())
-    write("sitemap.xml", sitemap(base_url, articles))
+    extra = ["templates/"] + [f"templates/{p.id}/" for p in catalog] if catalog else []
+    write("sitemap.xml", sitemap(base_url, articles, extra))
     write("feed.xml", feed(config, base_url, articles))
     write("robots.txt", f"User-agent: *\nAllow: /\nSitemap: {base_url}/sitemap.xml\n")
     return out
 
 
-def sitemap(base_url: str, articles: list[Article]) -> str:
+def sitemap(base_url: str, articles: list[Article], extra: list[str] = ()) -> str:
     urls = [f"<url><loc>{base_url}/</loc></url>"]
+    urls += [f"<url><loc>{base_url}/{path}</loc></url>" for path in extra]
     urls += [
         f"<url><loc>{base_url}/{a.slug}/</loc><lastmod>{a.date}</lastmod></url>" for a in articles
     ]

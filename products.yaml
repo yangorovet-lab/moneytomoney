@@ -1,0 +1,76 @@
+# Цифровые шаблоны, которые продаются на сайте.
+#
+# Файлы собираются кодом: python -m autosite products  ->  dist/products/
+# - Бесплатные (price: 0) публикуются на сайте для скачивания.
+# - Платные НЕ попадают ни на сайт, ни в git. Загрузите файл на платёжную
+#   площадку (Gumroad, Payhip, Lemon Squeezy, Prodamus...) и вставьте ссылку
+#   на оплату в checkout_url. Пока ссылки нет, на сайте висит «Coming soon».
+#
+# keywords используются, чтобы под каждой статьёй показать самый подходящий шаблон.
+
+products:
+  - id: "ergonomic-setup-checklist"
+    name: "Ergonomic Home Office Setup Checklist"
+    price: 0
+    format: "PDF, 2 pages"
+    file: "ergonomic-setup-checklist.pdf"
+    summary: "A printable two-page checklist to set up your chair, desk, screen, keyboard and lighting in about 15 minutes."
+    includes:
+      - "Step-by-step checks for chair, desk, monitor, keyboard, mouse and lighting"
+      - "Space to note your own measurements"
+      - "Daily habits checklist for breaks and movement"
+    keywords: ["setup", "ergonomic", "checklist", "chair", "desk", "monitor", "posture", "budget"]
+    checkout_url: ""
+
+  - id: "home-office-planner"
+    name: "Home Office Planner for Excel & Google Sheets"
+    price: 9
+    format: "Excel (.xlsx), works in Google Sheets"
+    file: "home-office-planner.xlsx"
+    summary: "Enter your height and get starting desk, chair and monitor measurements, then plan your gear budget and score your setup."
+    includes:
+      - "Ergonomic calculator: seat, sitting desk and standing desk height from your body height (cm or inches)"
+      - "Gear budget planner with priorities, totals and a spent-vs-planned tracker"
+      - "Setup audit: 20 yes/no checks that add up to a score out of 100"
+    keywords: ["standing desk", "desk height", "chair height", "budget", "setup", "monitor", "converter"]
+    checkout_url: ""
+
+  - id: "remote-work-planner"
+    name: "Remote Work Weekly Planner (Printable)"
+    price: 7
+    format: "PDF, 4 pages, US Letter (prints fine on A4)"
+    file: "remote-work-planner.pdf"
+    summary: "Undated printable pages for planning focus blocks, breaks and priorities when you work from home."
+    includes:
+      - "Weekly plan with top 3 priorities and focus blocks"
+      - "Daily page with time blocks, break tracker and end-of-day shutdown list"
+      - "Monthly review page and a habit tracker"
+    keywords: ["breaks", "productivity", "focus", "remote", "routine", "habits", "posture"]
+    checkout_url: ""
+
+  - id: "desk-stretch-routine"
+    name: "5-Minute Desk Stretch Routine (Printable)"
+    price: 4
+    format: "PDF poster + pocket card"
+    file: "desk-stretch-routine.pdf"
+    summary: "Eight simple stretches for neck, shoulders, wrists, back and legs that you can do at your desk, on one printable page."
+    includes:
+      - "One-page poster with 8 stretches and clear instructions"
+      - "Break schedule suggestions"
+      - "Printable pocket card version"
+    keywords: ["neck pain", "stretches", "wrist", "back pain", "breaks", "eye strain", "laptop"]
+    checkout_url: ""
+
+  - id: "home-office-bundle"
+    name: "Complete Home Office Bundle"
+    price: 15
+    format: "Excel + 2 PDFs (zip)"
+    file: "home-office-bundle.zip"
+    summary: "The planner spreadsheet, the weekly planner and the stretch routine together, at a lower price than buying them separately."
+    includes:
+      - "Home Office Planner for Excel & Google Sheets"
+      - "Remote Work Weekly Planner (Printable)"
+      - "5-Minute Desk Stretch Routine (Printable)"
+    keywords: []
+    checkout_url: ""
+    bundle: ["home-office-planner", "remote-work-planner", "desk-stretch-routine"]

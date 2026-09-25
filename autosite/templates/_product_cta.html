@@ -1,0 +1,13 @@
+<aside class="product-cta">
+  {% if previews.get(product.id) %}<img src="{{ base }}/{{ previews[product.id] }}" alt="" loading="lazy" width="120">{% endif %}
+  <div>
+    <p class="eyebrow">{{ "Free printable" if product.is_free else "Template" }}</p>
+    <p class="product-cta-title">{{ product.name }}</p>
+    <p>{{ product.summary }}</p>
+    {% if product.is_free %}
+    <a class="button" href="{{ base }}/downloads/{{ product.file }}" download>Download free PDF</a>
+    {% else %}
+    <a class="button" href="{{ base }}/templates/{{ product.id }}/">See what's inside &middot; {{ product.price_label }}</a>
+    {% endif %}
+  </div>
+</aside>

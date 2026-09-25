@@ -4,3 +4,6 @@ __pycache__/
 .venv/
 public/
 .env
+# Paid template files: never commit or publish them
+dist/
+*.whl

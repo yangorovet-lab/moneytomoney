@@ -17,7 +17,13 @@
 </head>
 <body>
   <header class="site-header">
-    <a class="logo" href="{{ base }}/">{{ site.name }}</a>
+    <div class="header-row">
+      <a class="logo" href="{{ base }}/">{{ site.name }}</a>
+      <nav class="main-nav">
+        <a href="{{ base }}/">Guides</a>
+        {% if has_shop %}<a href="{{ base }}/templates/">Templates</a>{% endif %}
+      </nav>
+    </div>
     <span class="tagline">{{ site.tagline }}</span>
   </header>
   <main>

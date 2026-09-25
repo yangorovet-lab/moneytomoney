@@ -9,6 +9,8 @@ from .builder import build
 from .config import load_config
 from .content import Article, load_all
 from .generator import generate, pending_topics
+from .products import build_all
+from .shop import catalog_for
 
 
 def cmd_generate(config, args):
@@ -49,6 +51,13 @@ def cmd_publish(config, args):
         print(f"published: {slug}")
 
 
+def cmd_products(config, args):
+    out = config.root / "dist" / "products"
+    for path in build_all(catalog_for(config), out):
+        print(f"built {path.relative_to(config.root)}")
+    print("Upload the paid files to your payment platform and put the links into products.yaml.")
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(prog="autosite", description="Autonomous affiliate content site")
     sub = parser.add_subparsers(dest="command", required=True)
@@ -63,6 +72,7 @@ def main(argv=None):
 
     sub.add_parser("build", help="render the site into public/").set_defaults(func=cmd_build)
     sub.add_parser("status", help="show drafts and the topic queue").set_defaults(func=cmd_status)
+    sub.add_parser("products", help="build template files into dist/products/").set_defaults(func=cmd_products)
 
     p = sub.add_parser("publish", help="approve drafts for publishing")
     p.add_argument("slugs", nargs="*")
