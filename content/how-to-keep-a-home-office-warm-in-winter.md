@@ -19,7 +19,7 @@ Sitting still for hours changes how temperature feels. When you walk around, you
 - **Desks sit under windows.** Glass loses heat quickly, and the cold air sliding down the pane pools right at your feet.
 - **Hard floors pull heat from your feet.** Tile, concrete and laminate feel far colder than carpet at the same temperature.
 
-Most people are comfortable at roughly 68 to 72°F (20 to 22°C) for desk work, but many feel cold below that range when they sit still. Your goal is to make the space around your body feel like that range, not necessarily the entire room.
+Most people are comfortable at roughly 68 to 72°F (20 to 22°C) for desk work. Your goal is to make the space around your body feel like that range, not necessarily the entire room.
 
 ## Step 1: Find and seal drafts (mostly free)
 
@@ -38,8 +38,6 @@ Heat you pay for is wasted if it leaks out. Spend ten minutes finding the leaks.
 - **Frames and gaps:** self-adhesive foam weatherstripping around window sashes and the door frame.
 - **Outlets on outside walls:** foam outlet gaskets fit behind the cover plate in a few minutes.
 - **Floors:** a thick rug, even a secondhand one, makes a large difference over hard floors.
-
-If you rent, curtains, rugs, draft stoppers and removable window film are usually allowed. Check before applying anything adhesive to the frame.
 
 ## Step 2: Warm yourself before warming the room
 
@@ -89,7 +87,7 @@ For quiet video calls, an oil-filled radiator or radiant panel is usually the be
 - **Look for a tip-over switch and overheat protection,** plus a recognized safety certification mark on the label.
 - **Put it on a hard, level surface,** not on a rug or under the desk where cables and papers collect.
 - **Turn it off when you leave the room** and before bed.
-- **Never use unvented fuel-burning heaters indoors.** Propane or kerosene heaters meant for outdoors can produce carbon monoxide. Make sure your home has working smoke and carbon monoxide alarms.
+- **Never use unvented fuel-burning heaters indoors.** Propane or kerosene heaters meant for outdoors can produce carbon monoxide. Make sure your home has working smoke and carbon monoxide alarms, and don't seal every gap in a room that has a gas or oil appliance; it needs ventilation.
 
 ### Estimating what it costs to run
 
@@ -104,7 +102,6 @@ Compare that with what you'd save by lowering the central heating for the whole 
 Winter air is often dry, which can make your eyes, throat and skin feel irritated, especially while staring at a screen. Many people feel best when indoor humidity sits around 30 to 50 percent. A cheap hygrometer tells you where you are. If it's low:
 
 - A small humidifier helps. Clean it regularly according to the instructions.
-- Houseplants and drying laundry indoors add a little moisture.
 
 Don't go overboard: high humidity on cold windows leads to condensation and mold.
 
@@ -117,19 +114,10 @@ Small layout changes can make a big difference:
 - **Move the desk away from the window** or at least pull it a foot or two back. You'll still get daylight without sitting in the cold downdraft.
 - **Keep the desk off outside walls** if there's an inside wall available.
 - **Don't block radiators or heating vents** with the desk, a bookcase or a filing cabinet.
-- **Use a desk lamp with a warm color temperature** in the late afternoon. It won't heat the room, but warm light makes a dark winter office feel less gloomy.
 
 ## Keep moving, too
 
 Cold makes muscles tense, and tense shoulders and neck add to the stiffness many people feel at a desk in winter. Get up at least once an hour, walk around, do a few shoulder rolls and squats. It warms you up and gives your eyes a break. If you notice persistent pain, numbness or tingling in your hands or feet, or fingers that turn white or blue in the cold, get it checked by a doctor.
-
-## Common mistakes
-
-- **Heating the whole house for one person.** Lower the central thermostat and heat your room or yourself.
-- **Running a space heater through a power strip.** Plug it into the wall.
-- **Putting the heater under the desk.** It's crowded with cables and papers and easy to kick.
-- **Ignoring the floor.** A rug or footrest often helps more than a warmer room.
-- **Sealing every gap in a room with a fuel-burning appliance.** Rooms with gas or oil appliances need ventilation. When in doubt, ask a heating professional.
 
 ## Quick checklist
 

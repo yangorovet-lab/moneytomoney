@@ -1,6 +1,6 @@
 ---
 title: "Walking Pad Under a Standing Desk: Is It Worth It?"
-description: A walking pad under a standing desk is worth it if you walk slowly, do low-precision work and have the space. Who benefits, who should skip it, and setup tips.
+description: A walking pad under a standing desk pays off if you walk slowly, do low-precision work and have space. Who benefits, who should skip it, setup tips.
 keyword: "walking pad under a standing desk: is it worth it"
 date: '2026-11-25'
 draft: false
