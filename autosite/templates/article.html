@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}{{ article.title }} | {{ site.name }}{% endblock %}
+{% block description %}{{ article.description }}{% endblock %}
+{% block canonical %}{{ base_url }}/{{ article.slug }}/{% endblock %}
+{% block head %}
+<script type="application/ld+json">
+{{ {"@context": "https://schema.org", "@type": "Article", "headline": article.title,
+    "description": article.description, "datePublished": article.date,
+    "author": {"@type": "Organization", "name": site.author}} | tojson }}
+</script>
+{% endblock %}
+{% block content %}
+<article>
+  <h1>{{ article.title }}</h1>
+  <p class="meta">{{ site.author }} &middot; {{ article.date }}</p>
+  {% if has_affiliate_links %}
+  <p class="disclosure">This article contains affiliate links. If you buy through them we may earn a commission,
+    at no extra cost to you. <a href="{{ base }}/disclosure/">Learn more</a>.</p>
+  {% endif %}
+  {{ body | safe }}
+</article>
+{% if product %}{% include "_product_cta.html" %}{% endif %}
+{% if related %}
+<section class="related">
+  <h2>Related guides</h2>
+  <ul>
+    {% for r in related %}<li><a href="{{ base }}/{{ r.slug }}/">{{ r.title }}</a></li>{% endfor %}
+  </ul>
+</section>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Templates and Printables | {{ site.name }}{% endblock %}
+{% block description %}Printable checklists, planners and spreadsheets for a comfortable, productive home office.{% endblock %}
+{% block canonical %}{{ base_url }}/templates/{% endblock %}
+{% block content %}
+<h1>Templates and printables</h1>
+<p class="lead">Practical tools that go with our guides: set up your workspace, plan your gear budget and build better work-from-home habits.</p>
+<div class="product-grid">
+  {% for p in products %}
+  <a class="product-card" href="{{ base }}/templates/{{ p.id }}/">
+    {% if previews.get(p.id) %}<img src="{{ base }}/{{ previews[p.id] }}" alt="Preview of {{ p.name }}" loading="lazy">
+    {% else %}<div class="product-card-placeholder">{{ p.format }}</div>{% endif %}
+    <span class="product-card-name">{{ p.name }}</span>
+    <span class="product-card-meta">{{ p.format }}</span>
+    <span class="price">{{ p.price_label }}{% if not p.available %} &middot; coming soon{% endif %}</span>
+  </a>
+  {% endfor %}
+</div>
+{% endblock %}

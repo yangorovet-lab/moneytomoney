@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}{{ title }} | {{ site.name }}{% endblock %}
+{% block canonical %}{{ base_url }}/about/{% endblock %}
+{% block content %}
+<h1>{{ title }}</h1>
+<p>{{ site.name }} publishes practical guides: {{ site.tagline | lower }}.</p>
+<p>Our articles are written with the help of AI tools.
+  We do not test products hands-on, and we never publish invented reviews, ratings, or statistics.
+  We focus on how to choose and set up equipment rather than on individual models.</p>
+{% endblock %}

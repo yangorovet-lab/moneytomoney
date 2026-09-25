@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}{{ product.name }} | {{ site.name }}{% endblock %}
+{% block description %}{{ product.summary }}{% endblock %}
+{% block canonical %}{{ base_url }}/templates/{{ product.id }}/{% endblock %}
+{% block head %}
+<script type="application/ld+json">
+{{ {"@context": "https://schema.org", "@type": "Product", "name": product.name, "description": product.summary,
+    "brand": {"@type": "Brand", "name": site.name},
+    "offers": {"@type": "Offer", "price": "%g" % product.price, "priceCurrency": "USD",
+               "availability": "https://schema.org/InStock" if product.available else "https://schema.org/PreOrder"}} | tojson }}
+</script>
+{% endblock %}
+{% block content %}
+<p class="meta"><a href="{{ base }}/templates/">&larr; All templates</a></p>
+<div class="product-page">
+  {% if previews.get(product.id) %}
+  <img class="product-preview" src="{{ base }}/{{ previews[product.id] }}" alt="Preview of {{ product.name }}">
+  {% endif %}
+  <div>
+    <h1>{{ product.name }}</h1>
+    <p class="lead">{{ product.summary }}</p>
+    <p class="price-big">{{ product.price_label }}
+      {% if product.bundle and bundle_value > product.price %}<span class="was">${{ "%g" % bundle_value }} separately</span>{% endif %}
+    </p>
+    {% if product.is_free %}
+    <a class="button button-big" href="{{ base }}/downloads/{{ product.file }}" download>Download free</a>
+    {% elif product.available %}
+    <a class="button button-big" href="{{ product.checkout_url }}" rel="noopener">Buy now &middot; {{ product.price_label }}</a>
+    <p class="small">Instant download after payment. Secure checkout by our payment provider.</p>
+    {% else %}
+    <span class="button button-big button-disabled">Coming soon</span>
+    {% endif %}
+    <p class="small">Format: {{ product.format }}</p>
+  </div>
+</div>
+<h2>What's inside</h2>
+<ul>
+  {% for item in product.includes %}<li>{{ item }}</li>{% endfor %}
+</ul>
+{% if parts %}
+<h2>Included templates</h2>
+<ul>
+  {% for p in parts %}<li><a href="{{ base }}/templates/{{ p.id }}/">{{ p.name }}</a> ({{ p.price_label }})</li>{% endfor %}
+</ul>
+{% endif %}
+<p class="small">General information, not medical advice. If you have ongoing pain, see a doctor or physiotherapist.</p>
+{% endblock %}

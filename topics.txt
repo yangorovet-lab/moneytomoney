@@ -1,0 +1,116 @@
+# Очередь тем: по одной поисковой фразе на строку, сверху вниз.
+# Темы сгруппированы в кластеры: несколько статей на одну тему поднимают
+# «тематический авторитет» сайта быстрее, чем разрозненные статьи.
+# Строки с # игнорируются.
+
+# --- Chairs and sitting
+how to choose an office chair for lower back pain
+how to adjust an office chair correctly
+office chair height: how high should your chair be
+mesh vs foam office chair: which is better for long hours
+do you need a headrest on an office chair
+how to sit at a desk with a short height
+how to make a kitchen chair more comfortable for working from home
+what to look for in an office chair for tall people
+
+# --- Standing desks
+standing desk vs desk converter: which should you buy
+how long should you stand at a standing desk each day
+correct standing desk height for your height
+single motor vs dual motor standing desk
+how to manage cables under a standing desk
+do you need an anti-fatigue mat for a standing desk
+standing desk stability: how to reduce wobble
+
+# --- Monitors and screens
+monitor height and distance: how to set up your screen correctly
+single vs dual monitor setup for remote work
+how to position two monitors ergonomically
+is a monitor arm worth it
+how to stop neck pain from working on a laptop
+laptop stand vs monitor: what is better for a home office
+ultrawide vs dual monitors for working from home
+
+# --- Keyboard, mouse, wrists
+how to prevent wrist pain when typing
+vertical mouse vs regular mouse: which is better for wrist pain
+split keyboard vs regular keyboard for ergonomics
+correct keyboard height and position at a desk
+do you need a wrist rest for keyboard and mouse
+
+# --- Lighting and eyes
+best desk lighting to reduce eye strain when working from home
+monitor light bar vs desk lamp: which should you get
+how to reduce screen glare in a home office
+what color temperature is best for working at a desk
+the 20-20-20 rule and other ways to reduce eye strain at work
+
+# --- Whole setups
+how to set up an ergonomic home office on a budget
+home office setup checklist for remote workers
+how to set up a home office in a small apartment
+how to set up a home office in a bedroom
+ergonomic setup for working from a couch or bed
+how to make your home office quieter
+how to improve your video call setup at home
+
+# --- Body and habits
+how often should you take breaks when working at a desk
+simple desk stretches for neck and shoulder tension
+how to improve posture while working from home
+how to stop your feet from dangling at a desk
+
+# --- Added batch (written in advance, published one per day)
+# Chairs and sitting
+ergonomic chair vs gaming chair for working from home
+how to fix an office chair that keeps sinking
+how long should an office chair last
+seat depth explained: why it matters for comfort
+lumbar support pillow vs built-in lumbar support
+kneeling chair vs office chair
+saddle chair pros and cons
+how to choose armrests on an office chair
+office chair casters: hard floor vs carpet
+# Standing desks
+how to start using a standing desk without pain
+standing desk mistakes to avoid
+what to wear on your feet at a standing desk
+walking pad under a standing desk: is it worth it
+how to set up a standing desk for two monitors
+# Desks
+how deep should a desk be for a monitor
+l-shaped desk vs straight desk for a home office
+how to raise a desk that is too low
+what to do if your desk is too high
+how to choose a desk for a small room
+keyboard tray: do you need one
+how to set up a corner desk ergonomically
+# Monitors and screens
+how to set up a monitor above a laptop
+curved vs flat monitor for office work
+best monitor size for a small desk
+how to set up a vertical monitor for coding and reading
+blue light: what actually helps with screen eye strain
+dark mode vs light mode for eye strain
+how to set up a monitor if you wear progressive lenses
+# Keyboard, mouse, wrists
+mechanical vs membrane keyboard for long typing sessions
+trackball vs mouse for wrist pain
+how to type with less wrist strain
+negative tilt keyboard: what it is and who it helps
+how to reduce shoulder strain from using a mouse
+# Lighting and eyes
+how to light a home office with no windows
+best lighting for video calls at home
+how bright should your desk lamp be
+# Whole setups
+home office setup for two people sharing a room
+how to set up a home office in a closet
+how to soundproof a home office on a budget
+how to keep a home office cool in summer
+how to keep a home office warm in winter
+how to organize a small desk
+how to set up a laptop workspace when traveling
+noise-cancelling headphones vs earbuds for working from home
+# Body and habits
+how to build a daily routine when working from home
