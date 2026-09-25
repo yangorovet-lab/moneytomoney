@@ -2,30 +2,53 @@
 {% block title %}{{ article.title }} | {{ site.name }}{% endblock %}
 {% block description %}{{ article.description }}{% endblock %}
 {% block canonical %}{{ base_url }}/{{ article.slug }}/{% endblock %}
+{% block og_type %}article{% endblock %}
 {% block head %}
 <script type="application/ld+json">
 {{ {"@context": "https://schema.org", "@type": "Article", "headline": article.title,
     "description": article.description, "datePublished": article.date,
-    "author": {"@type": "Organization", "name": site.author}} | tojson }}
+    "author": {"@type": "Organization", "name": site.author},
+    "publisher": {"@type": "Organization", "name": site.name}} | tojson }}
 </script>
 {% endblock %}
 {% block content %}
-<article>
+<div class="article-layout">
+<article class="article">
+  <nav class="breadcrumb"><a href="{{ base }}/">Home</a> <span>/</span> <a href="{{ base }}/#guides">Guides</a></nav>
   <h1>{{ article.title }}</h1>
-  <p class="meta">{{ site.author }} &middot; {{ article.date }}</p>
+  <p class="meta">{{ article.date | nice_date }} &middot; {{ article.reading_minutes }} min read</p>
   {% if has_affiliate_links %}
   <p class="disclosure">This article contains affiliate links. If you buy through them we may earn a commission,
     at no extra cost to you. <a href="{{ base }}/disclosure/">Learn more</a>.</p>
   {% endif %}
-  {{ body | safe }}
+  <div class="prose">
+    {{ body | safe }}
+  </div>
+  {% if product %}{% include "_product_cta.html" %}{% endif %}
 </article>
-{% if product %}{% include "_product_cta.html" %}{% endif %}
+{% if free_product %}
+<aside class="sidebar">
+  <div class="side-card">
+    {% if previews.get(free_product.id) %}<img src="{{ base }}/{{ previews[free_product.id] }}" alt="" loading="lazy">{% endif %}
+    <p class="eyebrow">Free printable</p>
+    <p class="side-title">{{ free_product.name }}</p>
+    <a class="button" href="{{ base }}/downloads/{{ free_product.file }}" download>Download free</a>
+    {% if has_shop %}<a class="side-link" href="{{ base }}/templates/">See all templates &rarr;</a>{% endif %}
+  </div>
+</aside>
+{% endif %}
+</div>
 {% if related %}
 <section class="related">
   <h2>Related guides</h2>
-  <ul>
-    {% for r in related %}<li><a href="{{ base }}/{{ r.slug }}/">{{ r.title }}</a></li>{% endfor %}
-  </ul>
+  <div class="card-grid">
+    {% for r in related %}
+    <a class="card" href="{{ base }}/{{ r.slug }}/">
+      <span class="card-title">{{ r.title }}</span>
+      <span class="card-meta">{{ r.reading_minutes }} min read</span>
+    </a>
+    {% endfor %}
+  </div>
 </section>
 {% endif %}
 {% endblock %}

@@ -30,6 +30,14 @@ STATIC_PAGES = {
 TASK_ITEM = re.compile(r"^(\s*[-*] )\[ \] ", re.MULTILINE)
 
 
+def nice_date(iso: str) -> str:
+    try:
+        d = dt.date.fromisoformat(iso)
+    except ValueError:
+        return iso
+    return f"{d:%B} {d.day}, {d.year}"
+
+
 def render_markdown(text: str, config: Config) -> str:
     text = TASK_ITEM.sub("\\1\u2610 ", insert_links(text, config))
     return markdown.markdown(text, extensions=["extra", "sane_lists", "toc"])
@@ -47,6 +55,7 @@ def build(config: Config) -> Path:
         loader=FileSystemLoader(PACKAGE_DIR / "templates"),
         autoescape=select_autoescape(["html"]),
     )
+    env.filters["nice_date"] = nice_date
     env.globals.update(
         site=config.site,
         base=urlparse(base_url).path.rstrip("/"),
@@ -59,8 +68,8 @@ def build(config: Config) -> Path:
     articles = [a for a in load_all(config.content_dir) if a.is_live(today)]
     catalog = catalog_for(config)
     previews = build_assets(catalog, out)
-    env.globals.update(previews=previews, has_shop=bool(catalog))
     free_product = next((p for p in catalog if p.is_free), None)
+    env.globals.update(previews=previews, has_shop=bool(catalog), free_product=free_product)
 
     def write(rel: str, html: str) -> None:
         path = out / rel

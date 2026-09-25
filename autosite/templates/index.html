@@ -1,17 +1,33 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>{{ site.name }}</h1>
-{% if featured %}{% set product = featured %}{% include "_product_cta.html" %}{% endif %}
-{% if articles %}
-<ul class="article-list">
-  {% for a in articles %}
-  <li>
-    <a href="{{ base }}/{{ a.slug }}/">{{ a.title }}</a>
-    <p>{{ a.description }}</p>
-  </li>
-  {% endfor %}
-</ul>
-{% else %}
-<p>New guides are on the way.</p>
-{% endif %}
+<section class="hero">
+  <p class="eyebrow">Home office ergonomics</p>
+  <h1>Set up a home office that feels good all day</h1>
+  <p class="lead">Clear, practical guides to chairs, desks, screens and habits, so you can work from home without the aches.</p>
+  <div class="hero-actions">
+    {% if featured %}<a class="button button-big" href="{{ base }}/downloads/{{ featured.file }}" download>Get the free setup checklist</a>{% endif %}
+    <a class="button button-big button-ghost" href="#guides">Browse the guides</a>
+  </div>
+</section>
+
+<section id="guides" class="section">
+  <div class="section-head">
+    <h2>Latest guides</h2>
+    <span class="small">{{ articles | length }} guides</span>
+  </div>
+  {% if articles %}
+  <div class="card-grid">
+    {% for a in articles %}
+    <a class="card" href="{{ base }}/{{ a.slug }}/">
+      <span class="card-title">{{ a.title }}</span>
+      <span class="card-text">{{ a.description }}</span>
+      <span class="card-meta">{{ a.reading_minutes }} min read</span>
+    </a>
+    {% if loop.index == 6 and featured %}{% set product = featured %}<div class="card-wide">{% include "_product_cta.html" %}</div>{% endif %}
+    {% endfor %}
+  </div>
+  {% else %}
+  <p>New guides are on the way.</p>
+  {% endif %}
+</section>
 {% endblock %}

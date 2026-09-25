@@ -2,6 +2,7 @@
 {% block title %}{{ product.name }} | {{ site.name }}{% endblock %}
 {% block description %}{{ product.summary }}{% endblock %}
 {% block canonical %}{{ base_url }}/templates/{{ product.id }}/{% endblock %}
+{% block og_image %}{% if previews.get(product.id) %}{{ base_url }}/{{ previews[product.id] }}{% else %}{{ base_url }}/static/og-image.png{% endif %}{% endblock %}
 {% block head %}
 <script type="application/ld+json">
 {{ {"@context": "https://schema.org", "@type": "Product", "name": product.name, "description": product.summary,

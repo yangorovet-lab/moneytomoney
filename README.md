@@ -80,6 +80,23 @@ git commit -am "Publish articles" && git push
 
 Когда темы в `topics.txt` заканчиваются, допишите новые. Лучше всего брать их из отчёта «Запросы» в Search Console: это то, по чему вас уже находят.
 
+## Как смотреть трафик
+
+| Что хочется знать | Где смотреть |
+|---|---|
+| Сколько людей заходит, на какие страницы, из каких стран и с каких сайтов | **Cloudflare Web Analytics**: бесплатно, без cookie и баннеров о согласии |
+| По каким запросам Google показывает сайт, сколько показов и кликов | **Google Search Console**: подключение описано выше |
+| Продажи шаблонов | кабинет Gumroad / Payhip / Lemon Squeezy |
+| Клики и заработок с Amazon | кабинет Amazon Associates, раздел Reports |
+
+Как подключить Cloudflare Web Analytics (5 минут):
+
+1. Зарегистрируйтесь на https://dash.cloudflare.com (бесплатно).
+2. Откройте Analytics & Logs → Web Analytics → Add a site → введите `yangorovet-lab.github.io`.
+3. Cloudflare покажет код со строкой `data-cf-beacon='{"token": "abc123..."}'`. Скопируйте только сам токен.
+4. Вставьте его в `site.yaml` в строку `cloudflare_analytics_token: "abc123..."` (или пришлите мне).
+5. Первые данные появятся в кабинете Cloudflare в течение часа после первых посещений.
+
 ## Команды
 
 | Команда | Что делает |
