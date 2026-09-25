@@ -13,7 +13,7 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 from .affiliate import has_links, insert_links
 from .config import Config
-from .content import Article, load_all
+from .content import Article, load_all, related
 from .shop import best_match, build_assets, bundle_value, catalog_for
 
 PACKAGE_DIR = Path(__file__).resolve().parent
@@ -49,7 +49,8 @@ def build(config: Config) -> Path:
         static_pages=STATIC_PAGES,
     )
 
-    articles = [a for a in load_all(config.content_dir) if not a.draft]
+    today = dt.date.today().isoformat()
+    articles = [a for a in load_all(config.content_dir) if a.is_live(today)]
     catalog = catalog_for(config)
     previews = build_assets(catalog, out)
     env.globals.update(previews=previews, has_shop=bool(catalog))
@@ -69,6 +70,7 @@ def build(config: Config) -> Path:
                 body=render_markdown(article.body, config),
                 has_affiliate_links=has_links(article.body, config),
                 product=best_match(catalog, article.body, f"{article.title} {article.keyword}"),
+                related=related(article, articles),
             ),
         )
     for slug, title in STATIC_PAGES.items():

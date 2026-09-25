@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass, field
 from pathlib import Path
 
@@ -18,6 +19,10 @@ class Article:
     date: str = ""
     draft: bool = True
     issues: list[str] = field(default_factory=list)
+
+    def is_live(self, today: str) -> bool:
+        """Approved and its publish date has arrived (dates are ISO strings, so they compare as text)."""
+        return not self.draft and self.date <= today
 
     @property
     def word_count(self) -> int:
@@ -59,6 +64,25 @@ class Article:
             draft=bool(meta.get("draft", False)),
             issues=list(meta.get("issues") or []),
         )
+
+
+STOP_WORDS = {"a", "an", "and", "at", "do", "for", "from", "how", "in", "is", "it", "of", "on", "or",
+              "should", "the", "to", "vs", "what", "when", "which", "with", "you", "your", "best", "work",
+              "working", "home", "office"}
+
+
+def topic_words(article: Article) -> set[str]:
+    text = f"{article.keyword} {article.title}".lower()
+    return {w for w in re.findall(r"[a-z0-9]+", text) if w not in STOP_WORDS and len(w) > 2}
+
+
+def related(article: Article, pool: list[Article], limit: int = 3) -> list[Article]:
+    """The articles sharing the most topic words with this one."""
+    words = topic_words(article)
+    scored = [(len(words & topic_words(other)), other.date, other) for other in pool if other.slug != article.slug]
+    scored = [s for s in scored if s[0] > 0]
+    scored.sort(key=lambda s: (s[0], s[1]), reverse=True)
+    return [s[2] for s in scored[:limit]]
 
 
 def load_all(directory: Path) -> list[Article]:

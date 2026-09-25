@@ -151,3 +151,29 @@ def test_build_without_tag_has_no_disclosure_banner(config):
     page = (build(config) / "live" / "index.html").read_text()
     assert "This article contains affiliate links" not in page
     assert "amazon.com" not in page
+
+
+def test_future_articles_wait_for_their_date(config):
+    Article(slug="today", title="Standing desk height", description="d", body="b", date="2026-01-01",
+            draft=False).save(config.content_dir)
+    Article(slug="later", title="Standing desk mats", description="d", body="b", date="2999-01-01",
+            draft=False).save(config.content_dir)
+
+    out = build(config)
+
+    assert (out / "today").exists()
+    assert not (out / "later").exists()
+    assert "later" not in (out / "sitemap.xml").read_text()
+    assert "later" not in (out / "feed.xml").read_text()
+
+
+def test_related_guides_link_live_articles(config):
+    for slug, title in [("a", "Standing desk height guide"), ("b", "Standing desk mat guide"),
+                        ("c", "Lamp color temperature")]:
+        Article(slug=slug, title=title, description="d", body="b", date="2026-01-01",
+                draft=False).save(config.content_dir)
+
+    page = (build(config) / "a" / "index.html").read_text()
+
+    assert "Related guides" in page and 'href="/moneytomoney/b/"' in page
+    assert 'href="/moneytomoney/c/"' not in page

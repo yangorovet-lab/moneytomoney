@@ -104,6 +104,9 @@ th, td { border: 1px solid var(--border); padding: 6px 10px; text-align: left; }
 .product-preview { width: 100%; border: 1px solid var(--border); border-radius: 6px; background: #fff; }
 .price-big { font: 700 28px system-ui, sans-serif; color: var(--accent); margin: 8px 0; }
 .price-big .was { font-size: 15px; font-weight: 400; color: var(--muted); margin-left: 8px; text-decoration: line-through; }
+.related { margin-top: 40px; font-family: system-ui, sans-serif; }
+.related h2 { font-size: 1.2rem; }
+.related li { margin: 6px 0; }
 @media (max-width: 600px) {
   .product-page { grid-template-columns: 1fr; }
   .product-preview { max-width: 280px; }

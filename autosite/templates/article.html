@@ -20,4 +20,12 @@
   {{ body | safe }}
 </article>
 {% if product %}{% include "_product_cta.html" %}{% endif %}
+{% if related %}
+<section class="related">
+  <h2>Related guides</h2>
+  <ul>
+    {% for r in related %}<li><a href="{{ base }}/{{ r.slug }}/">{{ r.title }}</a></li>{% endfor %}
+  </ul>
+</section>
+{% endif %}
 {% endblock %}

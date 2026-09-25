@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import datetime as dt
 import sys
 
 from .builder import build
@@ -29,10 +30,15 @@ def cmd_run(config, args):
 
 
 def cmd_status(config, args):
+    today = dt.date.today().isoformat()
     articles = load_all(config.content_dir)
     drafts = [a for a in articles if a.draft]
-    print(f"published: {len(articles) - len(drafts)}, drafts: {len(drafts)}, "
+    live = [a for a in articles if a.is_live(today)]
+    scheduled = sorted((a for a in articles if not a.draft and not a.is_live(today)), key=lambda a: a.date)
+    print(f"live: {len(live)}, scheduled: {len(scheduled)}, drafts: {len(drafts)}, "
           f"topics left: {len(pending_topics(config))}")
+    if scheduled:
+        print(f"  next: {scheduled[0].date} {scheduled[0].slug}; last: {scheduled[-1].date}")
     for a in drafts:
         note = f"  <- {'; '.join(a.issues)}" if a.issues else ""
         print(f"  draft: {a.slug}{note}")
