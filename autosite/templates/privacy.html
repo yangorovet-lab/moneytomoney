@@ -4,6 +4,9 @@
 {% block content %}
 <h1>{{ title }}</h1>
 <p>This site does not ask for or store personal information.</p>
+{% if site.cloudflare_analytics_token %}
+<p>We use Cloudflare Web Analytics to count visits. It does not use cookies or collect personal data.</p>
+{% endif %}
 {% if site.analytics_id %}
 <p>We use Google Analytics to understand how many people visit and which pages are useful.
   Google may set cookies for this purpose; see Google's privacy policy for details.</p>

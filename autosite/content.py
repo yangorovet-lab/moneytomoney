@@ -28,6 +28,10 @@ class Article:
     def word_count(self) -> int:
         return len(self.body.split())
 
+    @property
+    def reading_minutes(self) -> int:
+        return max(1, round(self.word_count / 230))
+
     def to_text(self) -> str:
         meta = {
             "title": self.title,

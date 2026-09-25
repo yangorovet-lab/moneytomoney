@@ -3,13 +3,27 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% block title %}{{ site.name }}{% endblock %}</title>
+  <title>{% block title %}{{ site.name }}: {{ site.tagline }}{% endblock %}</title>
   <meta name="description" content="{% block description %}{{ site.tagline }}{% endblock %}">
   <link rel="canonical" href="{% block canonical %}{{ base_url }}/{% endblock %}">
-  <link rel="alternate" type="application/rss+xml" href="{{ base }}/feed.xml">
+  <link rel="icon" href="{{ base }}/static/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="{{ base }}/static/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="{{ base }}/static/apple-touch-icon.png">
+  <meta name="theme-color" content="#1a6b54">
+  <meta property="og:site_name" content="{{ site.name }}">
+  <meta property="og:type" content="{% block og_type %}website{% endblock %}">
+  <meta property="og:title" content="{{ self.title() }}">
+  <meta property="og:description" content="{{ self.description() }}">
+  <meta property="og:url" content="{{ self.canonical() }}">
+  <meta property="og:image" content="{% block og_image %}{{ base_url }}/static/og-image.png{% endblock %}">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ base }}/feed.xml">
   <link rel="stylesheet" href="{{ base }}/static/style.css">
   {% if site.google_site_verification %}<meta name="google-site-verification" content="{{ site.google_site_verification }}">{% endif %}
   {% block head %}{% endblock %}
+  {% if site.cloudflare_analytics_token %}
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "{{ site.cloudflare_analytics_token }}"}'></script>
+  {% endif %}
   {% if site.analytics_id %}
   <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.analytics_id }}"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','{{ site.analytics_id }}');</script>
@@ -17,24 +31,37 @@
 </head>
 <body>
   <header class="site-header">
-    <div class="header-row">
-      <a class="logo" href="{{ base }}/">{{ site.name }}</a>
+    <div class="wrap header-row">
+      <a class="logo" href="{{ base }}/">
+        <img src="{{ base }}/static/favicon.svg" alt="" width="30" height="30">
+        <span>{{ site.name }}</span>
+      </a>
       <nav class="main-nav">
-        <a href="{{ base }}/">Guides</a>
+        <a href="{{ base }}/#guides">Guides</a>
         {% if has_shop %}<a href="{{ base }}/templates/">Templates</a>{% endif %}
       </nav>
     </div>
-    <span class="tagline">{{ site.tagline }}</span>
   </header>
-  <main>
+  <main class="wrap">
     {% block content %}{% endblock %}
   </main>
   <footer class="site-footer">
-    <p>Some links on this site are affiliate links: we may earn a commission from qualifying purchases, at no extra cost to you.</p>
-    <nav>
-      {% for slug, title in static_pages.items() %}<a href="{{ base }}/{{ slug }}/">{{ title }}</a>{% endfor %}
-    </nav>
-    <p>&copy; {{ year }} {{ site.name }}</p>
+    <div class="wrap footer-grid">
+      <div>
+        <p class="footer-brand">{{ site.name }}</p>
+        <p>{{ site.tagline }}.</p>
+      </div>
+      <nav>
+        <a href="{{ base }}/#guides">All guides</a>
+        {% if has_shop %}<a href="{{ base }}/templates/">Templates</a>{% endif %}
+        {% for slug, title in static_pages.items() %}<a href="{{ base }}/{{ slug }}/">{{ title }}</a>{% endfor %}
+      </nav>
+    </div>
+    <div class="wrap footer-note">
+      <p>Some links on this site are affiliate links: we may earn a commission from qualifying purchases, at no extra cost to you.
+        Articles are general information, not medical advice.</p>
+      <p>&copy; {{ year }} {{ site.name }}</p>
+    </div>
   </footer>
 </body>
 </html>
