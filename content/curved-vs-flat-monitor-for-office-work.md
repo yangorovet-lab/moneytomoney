@@ -57,7 +57,15 @@ Curved monitors list a curvature rating like 1800R or 1000R. The number is the r
 - **Higher number (e.g. 3000R or 2300R):** gentler curve.
 - **Lower number (e.g. 1500R or 1000R):** tighter curve.
 
-A rough rule: for office work, a gentler curve is usually easier to get used to and better for text. Tighter curves are more common on gaming monitors and are designed to wrap around you at close range. The ideal viewing distance roughly relates to the radius: a 1800R screen works best viewed from about 1.8 meters away in theory, though most people sit closer on desks and still find it comfortable.
+A rough rule: for office work, a gentler curve is usually easier to get used to and better for text. Tighter curves are more common on gaming monitors and are designed to wrap around you at close range. The radius is also the distance at which every point on the screen would be equally far from your eyes: 1.8 meters for an 1800R screen. Most people sit much closer than that at a desk and still find a gentle curve comfortable.
+
+## Other specs matter more for text work
+
+Curvature is only one line on the spec sheet. For documents and spreadsheets, these usually affect daily comfort more:
+
+- **Resolution for the size.** Text looks sharper when pixels are packed more densely. A 27-inch screen at 2560 x 1440 or higher is a common sweet spot, and 34-inch ultrawides typically run 3440 x 1440.
+- **A matte, anti-glare finish** for rooms with windows or overhead lights.
+- **A stand that adjusts height and tilt**, or a standard mounting pattern so you can add an arm.
 
 ## Ergonomics matter more than the curve
 

@@ -63,7 +63,6 @@ Floors are the coldest surface in most rooms, and your feet rest on them for hou
 - **Heated throws and electric blankets** use far less power than a space heater because they heat you, not the room. Choose one with an automatic shut-off timer.
 - **Heated foot warmers or under-desk heating panels** sit in the footwell and warm your legs.
 - **A hot water bottle or microwavable heat pack** on your lap costs almost nothing. Check it for wear and never use boiling water.
-- **A warm drink** at hand encourages you to take short breaks too.
 
 ## Step 3: Add a space heater, safely
 
@@ -95,7 +94,7 @@ You don't need a price table to work this out. A heater's power in kilowatts, mu
 
 For example: a heater running at 1.5 kW for 4 hours uses 6 kWh. Most heaters cycle on and off once the room is warm, so real use is often lower, especially with a thermostat setting.
 
-Compare that with what you'd save by lowering the central heating for the whole house during working hours. For a single person working in one room, zone heating often comes out ahead.
+For one person working in one room, that often costs less than heating the whole house.
 
 ## Step 4: Keep the air comfortable
 

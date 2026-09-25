@@ -74,9 +74,9 @@ Monitors, arms, a desktop computer, speakers and books add up quickly. A frame n
 
 ### 11. Choosing a frame that wobbles at standing height
 
-Almost every desk is steadier when low. At standing height, lighter frames can sway when you type. Single-motor desks and thinner legs are often more prone to this, though design matters as much as motor count.
+Almost every desk is steadier when low. At standing height, lighter frames can sway when you type. Leg thickness, crossbars and overall frame design all affect how steady a desk feels when raised.
 
-**Do this instead:** look at leg design, crossbars and frame stability specs. Check the return policy in case the wobble bothers you.
+**Do this instead:** compare frame designs and stability specs, and check the return policy in case the wobble bothers you.
 
 ### 12. Picking the wrong desktop size
 
