@@ -1,0 +1,10 @@
+# Очередь тем: по одной поисковой фразе на строку. Сверху вниз.
+# Лучше всего работают конкретные вопросы с покупательским намерением
+# («how to choose», «best X for Y», «X vs Y»). Строки с # игнорируются.
+how to set up an ergonomic home office on a budget
+how to choose an office chair for lower back pain
+monitor height and distance: how to set up your screen correctly
+best desk lighting to reduce eye strain when working from home
+single vs dual monitor setup for remote work
+how to manage cables under a standing desk
+how to stop neck pain from working on a laptop

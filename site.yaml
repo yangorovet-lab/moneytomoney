@@ -1,0 +1,42 @@
+# Настройки сайта. Отредактируйте этот файл под свою нишу перед первым запуском.
+
+site:
+  name: "Home Office Gear Guide"
+  tagline: "Practical advice for a better home workspace"
+  base_url: "https://example.github.io/moneytomoney"   # адрес, где будет опубликован сайт
+  language: "en"          # язык статей: en, ru, de ...
+  author: "Editorial team"
+  analytics_id: ""        # опционально: ID Google Analytics 4 (G-XXXXXXX)
+
+# Тематика сайта. Одна узкая ниша работает лучше, чем «обо всём».
+niche: >
+  Home office equipment and ergonomics for remote workers:
+  desks, chairs, monitors, lighting, keyboards, cable management, productivity habits.
+
+generation:
+  model: "claude-opus-5"
+  effort: "medium"          # low | medium | high — выше = качественнее, но дороже
+  articles_per_run: 2       # сколько статей писать за один запуск
+  min_words: 900            # статьи короче уходят в черновики
+  auto_publish: false       # false = статьи сохраняются как черновики, пока вы их не одобрите
+
+# Партнёрские товары. Ссылки берите из своих партнёрских кабинетов
+# (Amazon Associates, Admitad, CJ, Impact и т.п.).
+# Модель упоминает товар, только если он действительно подходит к теме статьи,
+# и опирается ТОЛЬКО на факты из поля facts — никаких выдуманных характеристик.
+products:
+  - id: "ergo-chair"
+    name: "Example Ergonomic Chair"
+    url: "https://example.com/ergo-chair?tag=YOUR-AFFILIATE-ID"
+    facts: "Adjustable lumbar support, 4D armrests, mesh back, supports up to 120 kg."
+    keywords: ["chair", "ergonomics", "back pain", "posture"]
+  - id: "monitor-arm"
+    name: "Example Dual Monitor Arm"
+    url: "https://example.com/monitor-arm?tag=YOUR-AFFILIATE-ID"
+    facts: "Holds two monitors 17-32 inches, up to 9 kg each, gas-spring height adjustment, clamp or grommet mount."
+    keywords: ["monitor", "desk setup", "neck", "screen"]
+  - id: "desk-lamp"
+    name: "Example LED Desk Lamp"
+    url: "https://example.com/desk-lamp?tag=YOUR-AFFILIATE-ID"
+    facts: "Adjustable color temperature 2700-6500K, 5 brightness levels, USB-C powered."
+    keywords: ["lighting", "lamp", "eye strain"]

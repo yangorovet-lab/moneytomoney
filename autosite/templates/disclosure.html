@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}{{ title }} | {{ site.name }}{% endblock %}
+{% block canonical %}{{ base_url }}/disclosure/{% endblock %}
+{% block content %}
+<h1>{{ title }}</h1>
+<p>Some links on this site are affiliate links. If you click one and make a purchase, we may receive
+  a commission from the retailer. This never changes the price you pay.</p>
+<p>Affiliate relationships do not decide what we write: products are mentioned only where they fit the advice
+  in the article. As an Amazon Associate (where applicable) we earn from qualifying purchases.</p>
+{% endblock %}

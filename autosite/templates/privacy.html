@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}{{ title }} | {{ site.name }}{% endblock %}
+{% block canonical %}{{ base_url }}/privacy/{% endblock %}
+{% block content %}
+<h1>{{ title }}</h1>
+<p>This site does not ask for or store personal information.</p>
+{% if site.analytics_id %}
+<p>We use Google Analytics to understand how many people visit and which pages are useful.
+  Google may set cookies for this purpose; see Google's privacy policy for details.</p>
+{% endif %}
+<p>When you follow an affiliate link, the retailer may set cookies to attribute your purchase.
+  Their own privacy policies apply on their sites.</p>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ site.name }}</h1>
+{% if articles %}
+<ul class="article-list">
+  {% for a in articles %}
+  <li>
+    <a href="{{ base }}/{{ a.slug }}/">{{ a.title }}</a>
+    <p>{{ a.description }}</p>
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>New guides are on the way.</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="{{ site.language }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{{ site.name }}{% endblock %}</title>
+  <meta name="description" content="{% block description %}{{ site.tagline }}{% endblock %}">
+  <link rel="canonical" href="{% block canonical %}{{ base_url }}/{% endblock %}">
+  <link rel="alternate" type="application/rss+xml" href="{{ base }}/feed.xml">
+  <link rel="stylesheet" href="{{ base }}/static/style.css">
+  {% block head %}{% endblock %}
+  {% if site.analytics_id %}
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.analytics_id }}"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','{{ site.analytics_id }}');</script>
+  {% endif %}
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="{{ base }}/">{{ site.name }}</a>
+    <span class="tagline">{{ site.tagline }}</span>
+  </header>
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+  <footer class="site-footer">
+    <p>As an affiliate we may earn a commission from qualifying purchases, at no extra cost to you.</p>
+    <nav>
+      {% for slug, title in static_pages.items() %}<a href="{{ base }}/{{ slug }}/">{{ title }}</a>{% endfor %}
+    </nav>
+    <p>&copy; {{ year }} {{ site.name }}</p>
+  </footer>
+</body>
+</html>
