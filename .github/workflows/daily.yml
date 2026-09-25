@@ -6,7 +6,7 @@ on:
   workflow_dispatch:        # manual run from the Actions tab
   push:
     branches: [main]
-    paths: ["content/**", "autosite/**", "site.yaml"]
+    paths: ["content/**", "autosite/**", "site.yaml", "products.yaml"]
 
 permissions:
   contents: write
