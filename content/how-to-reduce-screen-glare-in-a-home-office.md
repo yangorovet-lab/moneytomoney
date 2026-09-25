@@ -1,6 +1,6 @@
 ---
 title: "How to Reduce Screen Glare in a Home Office"
-description: "Stop squinting at reflections. Find where your glare comes from, then fix it with screen placement, window control, better lighting and a few cheap tweaks."
+description: "Stop squinting at reflections. Find where your glare comes from, then fix it with screen placement, window control, softer lighting and cheap tweaks."
 keyword: "how to reduce screen glare in a home office"
 date: '2026-10-08'
 draft: false

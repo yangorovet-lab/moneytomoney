@@ -1,6 +1,6 @@
 ---
 title: How Often Should You Take Breaks When Working at a Desk?
-description: A simple three-tier break schedule for desk workers, covering eye breaks, movement breaks and real rest, plus how to make breaks stick when you work from home.
+description: "A simple three-tier break schedule for desk workers: eye breaks, movement breaks and real rest, plus how to make breaks stick when working from home."
 keyword: how often should you take breaks when working at a desk
 date: '2026-10-02'
 draft: false
