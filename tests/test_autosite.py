@@ -183,3 +183,9 @@ def test_task_list_items_render_as_checkboxes(config):
     from autosite.builder import render_markdown
     html = render_markdown("- [ ] Feet flat\n- plain item\n", config)
     assert "☐ Feet flat" in html and "[ ]" not in html
+
+
+def test_google_verification_file_is_published(config):
+    config.site["google_verification_file"] = "google123abc.html"
+    out = build(config)
+    assert (out / "google123abc.html").read_text() == "google-site-verification: google123abc.html"

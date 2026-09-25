@@ -9,6 +9,7 @@ site:
   cloudflare_analytics_token: "02de9b3550da46b988aa9db4183e2573" # счётчик посетителей Cloudflare Web Analytics (бесплатно, без cookie)
   analytics_id: ""               # или ID Google Analytics 4 (G-XXXXXXX)
   google_site_verification: ""   # код из Google Search Console (метод «HTML-тег»)
+  google_verification_file: "googled07515ec93299826.html"  # или имя файла (метод «HTML-файл»)
 
 # Партнёрские идентификаторы. Пока тег пустой, сайт работает без ссылок
 # (товары упоминаются обычным текстом). Как только Amazon Associates одобрит
