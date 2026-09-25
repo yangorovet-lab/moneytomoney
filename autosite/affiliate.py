@@ -15,16 +15,25 @@ def used_product_ids(markdown_text: str) -> set[str]:
     return {m.group(1) for m in PLACEHOLDER.finditer(markdown_text)}
 
 
+def has_links(markdown_text: str, config: Config) -> bool:
+    products = (config.product(pid) for pid in used_product_ids(markdown_text))
+    return any(p and config.product_url(p) for p in products)
+
+
 def insert_links(markdown_text: str, config: Config) -> str:
-    """Replace placeholders with sponsored links; unknown ids become plain text."""
+    """Replace placeholders with sponsored links.
+
+    Unknown ids and products whose affiliate IDs are not configured yet become plain text.
+    """
 
     def replace(match: re.Match) -> str:
         product = config.product(match.group(1))
         text = match.group(2) or (product.name if product else match.group(1))
-        if product is None:
-            return text
+        url = product and config.product_url(product)
+        if not url:
+            return html.escape(text)
         return (
-            f'<a href="{html.escape(product.url, quote=True)}" '
+            f'<a href="{html.escape(url, quote=True)}" '
             f'rel="sponsored nofollow noopener" target="_blank">{html.escape(text)}</a>'
         )
 

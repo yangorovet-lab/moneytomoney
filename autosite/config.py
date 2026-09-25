@@ -27,6 +27,7 @@ class Config:
     niche: str
     generation: dict
     products: list[Product]
+    affiliate: dict = field(default_factory=dict)
     root: Path = ROOT
 
     @property
@@ -43,6 +44,17 @@ class Config:
 
     def product(self, product_id: str) -> Product | None:
         return next((p for p in self.products if p.id == product_id), None)
+
+    def product_url(self, product: Product) -> str | None:
+        """The product's affiliate URL, or None while its affiliate IDs are not configured."""
+        ids = {k: str(v).strip() for k, v in self.affiliate.items()}
+        try:
+            url = product.url.format(**ids)
+        except KeyError:
+            return None
+        if any(f"{{{k}}}" in product.url and not v for k, v in ids.items()):
+            return None
+        return url
 
 
 def load_config(path: Path | None = None) -> Config:
@@ -62,6 +74,7 @@ def load_config(path: Path | None = None) -> Config:
         niche=data["niche"].strip(),
         generation=generation,
         products=products,
+        affiliate=data.get("affiliate") or {},
         root=path.resolve().parent,
     )
 

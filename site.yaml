@@ -1,42 +1,104 @@
-# Настройки сайта. Отредактируйте этот файл под свою нишу перед первым запуском.
+# Настройки сайта.
 
 site:
-  name: "Home Office Gear Guide"
-  tagline: "Practical advice for a better home workspace"
-  base_url: "https://example.github.io/moneytomoney"   # адрес, где будет опубликован сайт
-  language: "en"          # язык статей: en, ru, de ...
-  author: "Editorial team"
-  analytics_id: ""        # опционально: ID Google Analytics 4 (G-XXXXXXX)
+  name: "Desk Setup Guide"
+  tagline: "Practical ergonomics and gear advice for people who work from home"
+  base_url: "https://yangorovet-lab.github.io/moneytomoney"
+  language: "en"
+  author: "Desk Setup Guide editors"
+  analytics_id: ""               # ID Google Analytics 4 (G-XXXXXXX), если нужен
+  google_site_verification: ""   # код из Google Search Console (метод «HTML-тег»)
 
-# Тематика сайта. Одна узкая ниша работает лучше, чем «обо всём».
+# Партнёрские идентификаторы. Пока тег пустой, сайт работает без ссылок
+# (товары упоминаются обычным текстом). Как только Amazon Associates одобрит
+# заявку, впишите сюда свой тег (вида yourname-20) — ссылки появятся на всех
+# страницах при следующей сборке.
+affiliate:
+  amazon_tag: ""
+
 niche: >
-  Home office equipment and ergonomics for remote workers:
-  desks, chairs, monitors, lighting, keyboards, cable management, productivity habits.
+  Home office ergonomics and equipment for remote workers: chairs, standing desks,
+  monitors and monitor arms, lighting, keyboards and mice, cable management,
+  and the posture and habits that prevent back, neck, wrist and eye strain.
 
 generation:
   model: "claude-opus-5"
   effort: "medium"          # low | medium | high — выше = качественнее, но дороже
-  articles_per_run: 2       # сколько статей писать за один запуск
+  articles_per_run: 1       # одна статья в день: ровный темп без «спама» для Google
   min_words: 900            # статьи короче уходят в черновики
-  auto_publish: false       # false = статьи сохраняются как черновики, пока вы их не одобрите
+  auto_publish: true        # статьи без найденных проблем публикуются сразу
 
-# Партнёрские товары. Ссылки берите из своих партнёрских кабинетов
-# (Amazon Associates, Admitad, CJ, Impact и т.п.).
-# Модель упоминает товар, только если он действительно подходит к теме статьи,
-# и опирается ТОЛЬКО на факты из поля facts — никаких выдуманных характеристик.
+# Товары. Это ссылки на категории Amazon, а не на конкретные модели: так статьи
+# не зависят от наличия и характеристик отдельных товаров. {amazon_tag}
+# подставляется из раздела affiliate. Можно добавлять ссылки других программ.
 products:
-  - id: "ergo-chair"
-    name: "Example Ergonomic Chair"
-    url: "https://example.com/ergo-chair?tag=YOUR-AFFILIATE-ID"
-    facts: "Adjustable lumbar support, 4D armrests, mesh back, supports up to 120 kg."
-    keywords: ["chair", "ergonomics", "back pain", "posture"]
-  - id: "monitor-arm"
-    name: "Example Dual Monitor Arm"
-    url: "https://example.com/monitor-arm?tag=YOUR-AFFILIATE-ID"
-    facts: "Holds two monitors 17-32 inches, up to 9 kg each, gas-spring height adjustment, clamp or grommet mount."
-    keywords: ["monitor", "desk setup", "neck", "screen"]
-  - id: "desk-lamp"
-    name: "Example LED Desk Lamp"
-    url: "https://example.com/desk-lamp?tag=YOUR-AFFILIATE-ID"
-    facts: "Adjustable color temperature 2700-6500K, 5 brightness levels, USB-C powered."
-    keywords: ["lighting", "lamp", "eye strain"]
+  - id: "office-chairs"
+    name: "ergonomic office chairs on Amazon"
+    url: "https://www.amazon.com/s?k=ergonomic+office+chair+adjustable+lumbar&tag={amazon_tag}"
+    facts: "Category link to Amazon search results, not a specific product. Do not describe specific models, prices or ratings."
+    keywords: ["chair", "lumbar", "back pain", "sitting", "posture"]
+  - id: "standing-desks"
+    name: "electric standing desks on Amazon"
+    url: "https://www.amazon.com/s?k=electric+standing+desk&tag={amazon_tag}"
+    facts: "Category link to Amazon search results, not a specific product. Do not describe specific models, prices or ratings."
+    keywords: ["standing desk", "sit-stand", "desk height"]
+  - id: "desk-converters"
+    name: "standing desk converters on Amazon"
+    url: "https://www.amazon.com/s?k=standing+desk+converter&tag={amazon_tag}"
+    facts: "Category link to Amazon search results, not a specific product. Do not describe specific models, prices or ratings."
+    keywords: ["desk converter", "standing on a budget", "sit-stand"]
+  - id: "monitor-arms"
+    name: "monitor arms on Amazon"
+    url: "https://www.amazon.com/s?k=monitor+arm+gas+spring&tag={amazon_tag}"
+    facts: "Category link to Amazon search results, not a specific product. Do not describe specific models, prices or ratings."
+    keywords: ["monitor", "screen height", "neck", "dual monitor"]
+  - id: "laptop-stands"
+    name: "laptop stands on Amazon"
+    url: "https://www.amazon.com/s?k=adjustable+laptop+stand&tag={amazon_tag}"
+    facts: "Category link to Amazon search results, not a specific product. Do not describe specific models, prices or ratings."
+    keywords: ["laptop", "neck pain", "screen height"]
+  - id: "external-keyboards"
+    name: "ergonomic keyboards on Amazon"
+    url: "https://www.amazon.com/s?k=ergonomic+keyboard&tag={amazon_tag}"
+    facts: "Category link to Amazon search results, not a specific product. Do not describe specific models, prices or ratings."
+    keywords: ["keyboard", "wrist", "typing", "laptop"]
+  - id: "vertical-mice"
+    name: "vertical mice on Amazon"
+    url: "https://www.amazon.com/s?k=vertical+ergonomic+mouse&tag={amazon_tag}"
+    facts: "Category link to Amazon search results, not a specific product. Do not describe specific models, prices or ratings."
+    keywords: ["mouse", "wrist pain", "forearm"]
+  - id: "desk-lamps"
+    name: "adjustable LED desk lamps on Amazon"
+    url: "https://www.amazon.com/s?k=led+desk+lamp+adjustable+color+temperature&tag={amazon_tag}"
+    facts: "Category link to Amazon search results, not a specific product. Do not describe specific models, prices or ratings."
+    keywords: ["lighting", "lamp", "eye strain", "glare"]
+  - id: "monitor-light-bars"
+    name: "monitor light bars on Amazon"
+    url: "https://www.amazon.com/s?k=monitor+light+bar&tag={amazon_tag}"
+    facts: "Category link to Amazon search results, not a specific product. Do not describe specific models, prices or ratings."
+    keywords: ["lighting", "glare", "small desk", "eye strain"]
+  - id: "footrests"
+    name: "under-desk footrests on Amazon"
+    url: "https://www.amazon.com/s?k=ergonomic+footrest+under+desk&tag={amazon_tag}"
+    facts: "Category link to Amazon search results, not a specific product. Do not describe specific models, prices or ratings."
+    keywords: ["footrest", "short", "chair height", "feet"]
+  - id: "cable-trays"
+    name: "under-desk cable management trays on Amazon"
+    url: "https://www.amazon.com/s?k=under+desk+cable+management+tray&tag={amazon_tag}"
+    facts: "Category link to Amazon search results, not a specific product. Do not describe specific models, prices or ratings."
+    keywords: ["cable management", "cables", "standing desk", "tidy"]
+  - id: "anti-fatigue-mats"
+    name: "anti-fatigue mats on Amazon"
+    url: "https://www.amazon.com/s?k=anti+fatigue+standing+mat&tag={amazon_tag}"
+    facts: "Category link to Amazon search results, not a specific product. Do not describe specific models, prices or ratings."
+    keywords: ["standing", "feet", "standing desk"]
+  - id: "headsets"
+    name: "noise-cancelling headphones on Amazon"
+    url: "https://www.amazon.com/s?k=noise+cancelling+headphones+microphone&tag={amazon_tag}"
+    facts: "Category link to Amazon search results, not a specific product. Do not describe specific models, prices or ratings."
+    keywords: ["noise", "calls", "focus", "headphones"]
+  - id: "webcams"
+    name: "1080p webcams on Amazon"
+    url: "https://www.amazon.com/s?k=1080p+webcam&tag={amazon_tag}"
+    facts: "Category link to Amazon search results, not a specific product. Do not describe specific models, prices or ratings."
+    keywords: ["video calls", "webcam", "camera"]

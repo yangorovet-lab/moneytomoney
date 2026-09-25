@@ -13,7 +13,7 @@ from autosite.generator import generate, parse_response, pending_topics
 ROOT = Path(__file__).resolve().parent.parent
 
 GOOD_BODY = "Intro paragraph about chairs.\n\n## Picking a chair\n\n" + "word " * 950 + (
-    "\n\nA solid option is [[ergo-chair|this adjustable chair]]."
+    "\n\nA solid option is [[office-chairs|compare adjustable chairs]]."
 )
 
 
@@ -70,12 +70,12 @@ def test_parse_response_rejects_missing_separator():
         parse_response("TITLE: x\nno separator")
 
 
-def test_generate_saves_draft_and_consumes_topic(config):
+def test_generate_publishes_and_consumes_topic(config):
     client = FakeClient(response())
     [article] = generate(config, count=1, client=client)
 
     assert article.slug == "how-to-choose-a-chair"
-    assert article.draft  # auto_publish is off in site.yaml
+    assert not article.draft  # auto_publish is on in site.yaml
     assert article.issues == []
     assert pending_topics(config) == ["Best desk lamp"]
     call = client.calls[0]
@@ -84,8 +84,13 @@ def test_generate_saves_draft_and_consumes_topic(config):
     assert "How to choose a chair" in call["messages"][0]["content"]
 
 
+def test_manual_review_mode_saves_drafts(config):
+    config.generation["auto_publish"] = False
+    [article] = generate(config, count=1, client=FakeClient(response()))
+    assert article.draft and article.issues == []
+
+
 def test_quality_issues_force_draft(config):
-    config.generation["auto_publish"] = True
     body = "We tested this chair for a month. [[made-up-id]] See https://example.com"
     [article] = generate(config, count=1, client=FakeClient(response(body)))
 
@@ -102,11 +107,18 @@ def test_refusal_is_skipped(config):
 
 
 def test_insert_links(config):
-    html = insert_links("Try [[ergo-chair]] or [[nope|this]].", config)
+    config.affiliate["amazon_tag"] = "mytag-20"
+    html = insert_links("Try [[office-chairs]] or [[nope|this]].", config)
     assert 'rel="sponsored nofollow noopener"' in html
-    assert "YOUR-AFFILIATE-ID" in html
-    assert "Example Ergonomic Chair</a>" in html
+    assert "tag=mytag-20" in html
+    assert "ergonomic office chairs on Amazon</a>" in html
     assert html.endswith("or this.")
+
+
+def test_links_are_plain_text_until_tag_is_set(config):
+    assert config.affiliate["amazon_tag"] == ""
+    html = insert_links("Try [[office-chairs|these <chairs>]].", config)
+    assert html == "Try these &lt;chairs&gt;."
 
 
 def test_article_round_trip(tmp_path):
@@ -116,7 +128,8 @@ def test_article_round_trip(tmp_path):
 
 
 def test_build_publishes_only_approved(config):
-    Article(slug="live", title="Live", description="d", body="See [[ergo-chair]].", date="2026-01-02",
+    config.affiliate["amazon_tag"] = "mytag-20"
+    Article(slug="live", title="Live", description="d", body="See [[office-chairs]].", date="2026-01-02",
             draft=False).save(config.content_dir)
     Article(slug="hidden", title="Hidden", description="d", body="x", date="2026-01-01").save(config.content_dir)
 
@@ -130,3 +143,11 @@ def test_build_publishes_only_approved(config):
     assert "hidden" not in (out / "index.html").read_text()
     for extra in ["robots.txt", "feed.xml", "404.html", "disclosure/index.html", "static/style.css"]:
         assert (out / extra).exists()
+
+
+def test_build_without_tag_has_no_disclosure_banner(config):
+    Article(slug="live", title="Live", description="d", body="See [[office-chairs]].", date="2026-01-02",
+            draft=False).save(config.content_dir)
+    page = (build(config) / "live" / "index.html").read_text()
+    assert "This article contains affiliate links" not in page
+    assert "amazon.com" not in page

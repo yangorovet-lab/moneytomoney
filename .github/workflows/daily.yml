@@ -36,7 +36,12 @@ jobs:
         if: github.event_name != 'push'
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: python -m autosite generate
+        run: |
+          if [ -z "$ANTHROPIC_API_KEY" ]; then
+            echo "::warning::ANTHROPIC_API_KEY secret is not set, skipping new articles"
+          else
+            python -m autosite generate
+          fi
 
       - name: Commit new articles
         if: github.event_name != 'push'

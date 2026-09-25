@@ -11,7 +11,7 @@ from xml.sax.saxutils import escape
 import markdown
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
-from .affiliate import insert_links, used_product_ids
+from .affiliate import has_links, insert_links
 from .config import Config
 from .content import Article, load_all
 
@@ -46,7 +46,6 @@ def build(config: Config) -> Path:
         base_url=base_url,
         year=dt.date.today().year,
         static_pages=STATIC_PAGES,
-        reviewed=not config.generation["auto_publish"],
     )
 
     articles = [a for a in load_all(config.content_dir) if not a.draft]
@@ -63,7 +62,7 @@ def build(config: Config) -> Path:
             env.get_template("article.html").render(
                 article=article,
                 body=render_markdown(article.body, config),
-                has_affiliate_links=bool(used_product_ids(article.body)),
+                has_affiliate_links=has_links(article.body, config),
             ),
         )
     for slug, title in STATIC_PAGES.items():

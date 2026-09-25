@@ -1,10 +1,61 @@
-# Очередь тем: по одной поисковой фразе на строку. Сверху вниз.
-# Лучше всего работают конкретные вопросы с покупательским намерением
-# («how to choose», «best X for Y», «X vs Y»). Строки с # игнорируются.
-how to set up an ergonomic home office on a budget
+# Очередь тем: по одной поисковой фразе на строку, сверху вниз.
+# Темы сгруппированы в кластеры: несколько статей на одну тему поднимают
+# «тематический авторитет» сайта быстрее, чем разрозненные статьи.
+# Строки с # игнорируются.
+
+# --- Chairs and sitting
 how to choose an office chair for lower back pain
-monitor height and distance: how to set up your screen correctly
-best desk lighting to reduce eye strain when working from home
-single vs dual monitor setup for remote work
+how to adjust an office chair correctly
+office chair height: how high should your chair be
+mesh vs foam office chair: which is better for long hours
+do you need a headrest on an office chair
+how to sit at a desk with a short height
+how to make a kitchen chair more comfortable for working from home
+what to look for in an office chair for tall people
+
+# --- Standing desks
+standing desk vs desk converter: which should you buy
+how long should you stand at a standing desk each day
+correct standing desk height for your height
+single motor vs dual motor standing desk
 how to manage cables under a standing desk
+do you need an anti-fatigue mat for a standing desk
+standing desk stability: how to reduce wobble
+
+# --- Monitors and screens
+monitor height and distance: how to set up your screen correctly
+single vs dual monitor setup for remote work
+how to position two monitors ergonomically
+is a monitor arm worth it
 how to stop neck pain from working on a laptop
+laptop stand vs monitor: what is better for a home office
+ultrawide vs dual monitors for working from home
+
+# --- Keyboard, mouse, wrists
+how to prevent wrist pain when typing
+vertical mouse vs regular mouse: which is better for wrist pain
+split keyboard vs regular keyboard for ergonomics
+correct keyboard height and position at a desk
+do you need a wrist rest for keyboard and mouse
+
+# --- Lighting and eyes
+best desk lighting to reduce eye strain when working from home
+monitor light bar vs desk lamp: which should you get
+how to reduce screen glare in a home office
+what color temperature is best for working at a desk
+the 20-20-20 rule and other ways to reduce eye strain at work
+
+# --- Whole setups
+how to set up an ergonomic home office on a budget
+home office setup checklist for remote workers
+how to set up a home office in a small apartment
+how to set up a home office in a bedroom
+ergonomic setup for working from a couch or bed
+how to make your home office quieter
+how to improve your video call setup at home
+
+# --- Body and habits
+how often should you take breaks when working at a desk
+simple desk stretches for neck and shoulder tension
+how to improve posture while working from home
+how to stop your feet from dangling at a desk
