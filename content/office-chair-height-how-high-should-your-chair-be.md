@@ -6,7 +6,7 @@ date: '2026-10-04'
 draft: false
 ---
 
-Your chair is at the right height when your feet rest flat on the floor, your thighs are roughly parallel to the floor or angled slightly down, and your knees sit level with or a little below your hips. For most adults, that puts the top of the seat somewhere around 16 to 21 inches off the floor, depending mainly on the length of your lower legs and your shoes. There's a catch: the right height for your legs and the right height for your desk often don't match. When that happens, set the chair for your arms and bring the floor up to your feet with a footrest.
+Your chair is at the right height when your feet rest flat on the floor, your thighs are roughly parallel to the floor or angled slightly down, and your knees sit level with or a little below your hips. For most adults, that puts the top of the seat somewhere around 15 to 21 inches off the floor, depending mainly on the length of your lower legs and your shoes. There's a catch: the right height for your legs and the right height for your desk often don't match. When that happens, set the chair for your arms and bring the floor up to your feet with a footrest.
 
 ## The two-minute test
 
