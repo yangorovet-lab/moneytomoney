@@ -6,7 +6,7 @@ site:
   base_url: "https://yangorovet-lab.github.io/moneytomoney"
   language: "en"
   author: "Desk Setup Guide editors"
-  cloudflare_analytics_token: "" # счётчик посетителей Cloudflare Web Analytics (бесплатно, без cookie)
+  cloudflare_analytics_token: "02de9b3550da46b988aa9db4183e2573" # счётчик посетителей Cloudflare Web Analytics (бесплатно, без cookie)
   analytics_id: ""               # или ID Google Analytics 4 (G-XXXXXXX)
   google_site_verification: ""   # код из Google Search Console (метод «HTML-тег»)
 
